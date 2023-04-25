@@ -1,8 +1,15 @@
 const { Sequelize } = require("sequelize");
+const {
+  DB_HOST,
+  DB_PORT,
+  DB_USER,
+  DB_PASS,
+  DB_NAME,
+} = require("../config/env.config");
 
-const sequelize = new Sequelize("hw18_sequelize", "root", "123456789", {
-  host: "localhost",
-  port: 3307,
+const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
+  port: DB_PORT,
+  host: DB_HOST,
   dialect: "mysql",
   logging: false,
 });
@@ -23,5 +30,5 @@ const checkDatabaseConnection = async () => {
 
 module.exports = {
   checkDatabaseConnection,
-  sequelize
+  sequelize,
 };

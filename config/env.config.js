@@ -14,6 +14,18 @@ const checkEnv = (key) => {
   }
 };
 
-const PORT = checkEnv("PORT");
+const PORT = +checkEnv("PORT");
+const DB_HOST = checkEnv("DB_HOST");
+const DB_PORT = +checkEnv("DB_PORT");
+const DB_USER = checkEnv("DB_USER");
+const DB_PASS = checkEnv("DB_PASS");
+const DB_NAME = checkEnv("DB_NAME");
 
-module.exports = { PORT };
+module.exports = {
+  PORT,
+  DB_HOST,
+  DB_PORT,
+  DB_USER,
+  DB_PASS,
+  DB_NAME,
+};
