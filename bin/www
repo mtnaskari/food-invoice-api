@@ -8,6 +8,7 @@ const app = require("../app");
 const debug = require("debug")("hw18-sequelize:server");
 const http = require("http");
 const { PORT } = require("../config/env.config");
+const { checkDatabaseConnection } = require("../database/db.connection");
 
 /**
  * Get port from environment and store in Express.
@@ -26,11 +27,14 @@ const server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port, () => {
-  console.log(`[i] Server is running on port ${port}`);
-});
-server.on("error", onError);
-server.on("listening", onListening);
+(async () => {
+  await checkDatabaseConnection();
+  server.listen(port, () => {
+    console.log(`[i] Server is running on port ${port}`);
+  });
+  server.on("error", onError);
+  server.on("listening", onListening);
+})();
 
 /**
  * Normalize a port into a number, string, or false.
