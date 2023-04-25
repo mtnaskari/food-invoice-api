@@ -7,7 +7,8 @@
     "dev": "nodemon ./bin/www",
     "migrate": "node ./database/db.migrate.js",
     "food:seeder": "node ./database/seed/food.seeder.js",
-    "student:seeder": "node ./database/seed/student.seeder.js"
+    "student:seeder": "node ./database/seed/student.seeder.js",
+    "db:all": "npm run migrate && npm run food:seeder && npm run student:seeder"
   },
   "dependencies": {
     "cookie-parser": "~1.4.6",

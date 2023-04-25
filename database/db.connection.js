@@ -23,8 +23,6 @@ const checkDatabaseConnection = async () => {
   } catch (error) {
     console.error("[-] Unable to connect to the MySQL database:", error);
     process.exit(1);
-  } finally {
-    sequelize.close();
   }
 };
 
