@@ -16,21 +16,20 @@ const Food = sequelize.define(
       },
       notNull: {
         msg: "Food name is required",
-      }
+      },
     },
     price: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      notNull: {
+        msg: "Food price is required",
+      },
     },
-    notNull: {
-      msg: "Food price is required",
-    }
   },
   {
     timestamps: true,
     tableName: "foods",
   }
 );
-
 
 module.exports = Food;
