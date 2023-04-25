@@ -5,7 +5,9 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "migrate": "node ./database/db.migrate.js"
+    "migrate": "node ./database/db.migrate.js",
+    "food:seeder": "node ./database/seed/food.seeder.js",
+    "student:seeder": "node ./database/seed/student.seeder.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.6",

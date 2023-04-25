@@ -1,0 +1,35 @@
+const Student = require("../models/student.model");
+
+let students = [
+  {
+    firstName: "John",
+    lastName: "Doe",
+    gender: "male",
+    studentCode: "111111001",
+  },
+  {
+    firstName: "Jane",
+    lastName: "Doe",
+    gender: "female",
+    studentCode: "222222002",
+  },
+  {
+    firstName: "Bob",
+    lastName: "Smith",
+    gender: "male",
+    studentCode: "333333003",
+  },
+  {
+    firstName: "Alice",
+    lastName: "Johnson",
+    gender: "female",
+    studentCode: "444444004",
+  },
+];
+
+(async () => {
+  for (const student of students) {
+    await Student.create(student);
+  }
+  console.log("[i] Student seeder finished!");
+})();
