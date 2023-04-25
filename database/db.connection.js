@@ -23,4 +23,5 @@ const checkDatabaseConnection = async () => {
 
 module.exports = {
   checkDatabaseConnection,
+  sequelize
 };
