@@ -1,18 +1,9 @@
 const { sequelize } = require("./db.connection");
-
-const Food = require("./models/food.model");
-const Student = require("./models/student.model");
-const Invoice = require("./models/invoice.model");
-const Food_Invoice = require("./models/food_invoice.model");
-
-Student.hasMany(Invoice);
-Invoice.belongsTo(Student);
-
-Food.belongsToMany(Invoice, { through: Food_Invoice });
-Invoice.belongsToMany(Food, { through: Food_Invoice });
+const { initDatabaseRelations } = require("./db.relations");
 
 (async () => {
   try {
+    initDatabaseRelations();
     await sequelize.authenticate();
     console.log(
       "[i] Connection has been established successfully to the MySql DB."
