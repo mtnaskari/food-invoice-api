@@ -1,19 +1,10 @@
-const Invoice = require("../database/models/invoice.model");
-const Food = require("../database/models/food.model");
-const Student = require("../database/models/student.model");
+const { createInvoice } = require("../services/invoice.service");
 
 const createInvoice = async (req, res) => {
   try {
-    const { studentId, foodIds, trackingCode } = req.body;
+    const { foodIds, studentId } = req.body;
 
-    const foods = await Food.findByPk(foodIds);
-
-    const invoice = await Invoice.create({
-      trackingCode,
-      studentId,
-    });
-
-    await invoice.addFood(foods);
+    const invoice = await createInvoice(foodIds, studentId);
 
     return res.status(201).json({ invoice });
   } catch (error) {
