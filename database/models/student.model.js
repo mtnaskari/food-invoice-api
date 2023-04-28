@@ -2,7 +2,7 @@ const { sequelize } = require("../db.connection");
 const { DataTypes } = require("sequelize");
 
 const Student = sequelize.define(
-  "Student",
+  "student",
   {
     firstName: {
       type: DataTypes.STRING,

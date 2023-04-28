@@ -2,9 +2,8 @@ const { sequelize } = require("../db.connection");
 const { DataTypes } = require("sequelize");
 
 const Food = sequelize.define(
-  "Food",
+  "food",
   {
-    // Model attributes are defined here
     name: {
       type: DataTypes.STRING,
       allowNull: false,

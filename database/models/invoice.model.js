@@ -2,7 +2,7 @@ const { sequelize } = require("../db.connection");
 const { DataTypes } = require("sequelize");
 
 const Invoice = sequelize.define(
-  "Invoice",
+  "invoice",
   {
     trackingCode: {
       type: DataTypes.STRING(12),
