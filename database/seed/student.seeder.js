@@ -28,8 +28,13 @@ let students = [
 ];
 
 (async () => {
-  for (const student of students) {
-    await Student.create(student);
+  try {
+    await Student.bulkCreate(students);
+    console.log("[i] Student seeder finished!");
+  } catch (error) {
+    console.error("[-] Unable to connect to the MySQL database:", error);
+    process.exit(1);
+  } finally {
+    process.exit(0);
   }
-  console.log("[i] Student seeder finished!");
 })();

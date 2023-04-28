@@ -16,8 +16,13 @@ const foods = [
 ];
 
 (async () => {
-  for (const food of foods) {
-    await Food.create(food);
+  try {
+    await Food.bulkCreate(foods);
+    console.log("[i] Food seeder finished!");
+  } catch (error) {
+    console.error("[-] Unable to connect to the MySQL database:", error);
+    process.exit(1);
+  } finally {
+    process.exit(0);
   }
-  console.log("[i] Food seeder finished!");
 })();
