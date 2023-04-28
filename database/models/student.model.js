@@ -33,9 +33,11 @@ const Student = sequelize.define(
     gender: {
       type: DataTypes.STRING,
       defaultValue: "male",
-      isIn: {
-        args: [["male", "female"]],
-        msg: "Must be male or female",
+      validate: {
+        isIn: {
+          args: [["male", "female"]],
+          msg: "Gender must be male or female",
+        },
       },
     },
     studentCode: {
